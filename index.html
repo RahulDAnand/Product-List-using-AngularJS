@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Product List with AngularJS</title>
+  <!-- connection to external CSS for our page -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<!-- defining our JS and angular file -->
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js'></script>
+<script src="js/controller.js"></script>
+<body>
+  <!-- defining our app and controller on html -->
+  <div id="mobiles" ng-app="mobiles" ng-controller="MobilesListCtrl">
+    <!-- our content -->
+    <div class="dev-text">Rahul Anand</div>
+    <h2>
+      <center>
+      <img style="width: 50%; height: 50%" src="https://withknown.com/guides/beginner/img/all-devices.png"/>
+      <br>Product List
+    </center>
+    </h2>
+  <input type="text" placeholder="search for device" id="query" ng-model="query"/>
+  <select ng-model="orderList">
+    <option value="brand">Brand</option>
+    <option value="price">Cheapest</option>
+    <option value="-price">Expensive</option>
+    <option value="category">Category</option>
+  </select>
+  <ul id="notebook_ul">
+  <li ng-repeat="mobile in mobiles | filter:query | orderBy: orderList">
+    <img class="image-thumbnail" ng-src="{{mobile.image}}"/>
+      Name: {{mobile.name}}<br/>
+      Brand: {{mobile.brand}}<br/>
+      Category: {{mobile.category}}
+      <div class="right top"> {{mobile.price | currency:"₹" : fractionSize}}</div>
+    </li>
+  </ul>
+  <span>Number of Devices: {{mobiles.length}}</span>
+</div>
+
+</body>
+</html>
