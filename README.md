@@ -15,7 +15,7 @@ contains multiple product view with sorting function.
 
 For demo of version 1.0:  [Click Here](https://git.io/vAL5S)
 
->Feel free to use my work.
+Feel free to use my work.
 
->Cheers
+Cheers
 
